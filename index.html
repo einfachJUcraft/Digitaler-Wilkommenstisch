@@ -15,12 +15,10 @@
         #flyer-modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 100; padding: 1.5rem; flex-direction: column; align-items: center; justify-content: center; }
         .card-tap:active { transform: scale(0.98); transition: transform 0.1s; }
         
-        /* Custom Styles für den Social Feed */
         .social-gradient-ig { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
         .social-yt { background-color: #ff0000; }
         .social-fb { background-color: #1877f2; }
         
-        /* Animation für neue Elemente */
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
@@ -40,9 +38,6 @@
 
     <main class="max-w-5xl mx-auto px-4 -mt-12">
         <div id="flyer-container" class="masonry">
-            <!-- Dynamische Flyer werden hier am Anfang eingefügt -->
-
-            <!-- WEBSITE BUTTON KACHEL (FEST) -->
             <div class="masonry-item bg-white rounded-3xl shadow-xl overflow-hidden border border-purple-100 card-tap transition-all hover:shadow-lg">
                 <a href="https://www.friedenskirche-jenfeld.de" target="_blank" class="block p-6">
                     <div class="flex items-center justify-between mb-4">
@@ -59,7 +54,6 @@
                 </a>
             </div>
             
-            <!-- SOCIAL MEDIA FEED KACHEL (FEST) -->
             <div class="masonry-item bg-white rounded-3xl shadow-xl overflow-hidden border border-purple-100">
                 <div class="p-5 border-b border-slate-50 bg-slate-50/50">
                     <h2 class="text-sm font-bold text-slate-500 uppercase tracking-widest flex items-center">
@@ -67,7 +61,6 @@
                     </h2>
                 </div>
                 
-                <!-- Instagram -->
                 <a href="https://www.instagram.com/friedenskirchejenfeld/" target="_blank" class="flex items-center p-4 hover:bg-slate-50 transition-colors group">
                     <div class="social-gradient-ig p-2.5 rounded-2xl text-white shadow-md group-hover:scale-110 transition-transform">
                         <i data-lucide="instagram" class="w-5 h-5"></i>
@@ -78,8 +71,6 @@
                     </div>
                     <i data-lucide="chevron-right" class="w-4 h-4 ml-auto text-slate-300"></i>
                 </a>
-
-                <!-- YouTube -->
                 <a href="https://youtube.com/JenfeldLive" target="_blank" class="flex items-center p-4 hover:bg-slate-50 transition-colors group border-t border-slate-50">
                     <div class="social-yt p-2.5 rounded-2xl text-white shadow-md group-hover:scale-110 transition-transform">
                         <i data-lucide="youtube" class="w-5 h-5"></i>
@@ -90,8 +81,6 @@
                     </div>
                     <i data-lucide="chevron-right" class="w-4 h-4 ml-auto text-slate-300"></i>
                 </a>
-
-                <!-- Facebook -->
                 <a href="https://facebook.com/Friedenskirche-Jenfeld-131389193583311" target="_blank" class="flex items-center p-4 hover:bg-slate-50 transition-colors group border-t border-slate-50">
                     <div class="social-fb p-2.5 rounded-2xl text-white shadow-md group-hover:scale-110 transition-transform">
                         <i data-lucide="facebook" class="w-5 h-5"></i>
@@ -103,8 +92,6 @@
                     <i data-lucide="chevron-right" class="w-4 h-4 ml-auto text-slate-300"></i>
                 </a>
             </div>
-
-            <!-- SPENDEN KACHEL (FEST) -->
             <div class="masonry-item bg-emerald-600 rounded-3xl shadow-lg p-6 text-white card-tap">
                 <a href="https://www.friedenskirche-jenfeld.de/ueber-uns#spenden" target="_blank" class="block">
                     <div class="flex items-center space-x-2 mb-3">
@@ -142,7 +129,6 @@
                 loader.style.display = 'none';
 
                 if (items && items.length > 0) {
-                    // Wir fügen die Flyer AM ANFANG (prepend) des Containers ein
                     items.reverse().forEach(item => {
                         const div = document.createElement('div');
                         div.className = 'masonry-item bg-white rounded-3xl shadow-md overflow-hidden border border-purple-100 card-tap cursor-pointer transition-all hover:shadow-lg fade-in';
@@ -185,7 +171,7 @@
                             div.onclick = () => openModal(`<div class="bg-white p-8 rounded-3xl max-w-md w-full shadow-2xl"><h2 class="text-2xl font-bold mb-4 text-purple-900">${item.title}</h2><p class="text-slate-700 whitespace-pre-wrap leading-relaxed">${item.content}</p></div>`);
                         }
                         
-                        container.prepend(div); // Fügt das Element ganz oben ein
+                        container.prepend(div);
                     });
                     lucide.createIcons();
                 } else if (!items.error) {
